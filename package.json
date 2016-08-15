@@ -1,0 +1,24 @@
+{
+  "name": "pandres95-api",
+  "version": "0.0.1",
+  "description": "My website API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "mocha --recursive test/_.js test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pandres95:pandres95-api"
+  },
+  "keywords": [
+    "pandres95",
+    "api",
+    "booljs"
+  ],
+  "author": "Pablo Andrés Dorado Suárez <im@pandres95.me> (https://pandres95.me)",
+  "license": "MIT",
+  "dependencies": {
+    "bool.js": "^0.6.2"
+  }
+}
