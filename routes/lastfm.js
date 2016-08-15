@@ -6,8 +6,13 @@ module.exports = function (app) {
     return [
         {
             method: 'get',
-            url: '/lastfm/now',
-            action: lastfm.nowPlaying
+            url: '/lastfm',
+            action: lastfm.recent
+        },
+        {
+            method: 'get',
+            url: '/lastfm/latest',
+            action: lastfm.latest
         }
     ];
 };

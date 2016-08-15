@@ -52,5 +52,12 @@
     "noyield": false,
 
     "browser": true,
-    "node": true
+    "node": true,
+
+    "globals": {
+        "q": true,
+        "_": true,
+        "PATH": true,
+        "log": true
+    }
 }
