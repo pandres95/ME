@@ -19,7 +19,9 @@
   "author": "Pablo Andrés Dorado Suárez <im@pandres95.me> (https://pandres95.me)",
   "license": "MIT",
   "dependencies": {
-    "bool.js": "^0.6.2"
+    "bool.js": "^0.6.2",
+    "superagent": "^2.2.0",
+    "superagent-promise": "^1.1.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
