@@ -7,12 +7,12 @@ module.exports = function (app) {
         {
             method: 'get',
             url: '/lastfm',
-            action: lastfm.recent
+            action: lastfm.recent.bind(lastfm)
         },
         {
             method: 'get',
             url: '/lastfm/latest',
-            action: lastfm.latest
+            action: lastfm.latest.bind(lastfm)
         }
     ];
 };

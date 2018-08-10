@@ -1,8 +1,12 @@
 'use strict';
-var booljs = require('bool.js');
 
-// Here is where magic happens
-booljs('pandres95.me', [ 'superagent', 'superagent-promise' ])
-    .setServerLoader('booljs-express')
-    .setDatabaseLoader('booljs-nomodel')
-    .run();
+const Bool = require('booljs');
+
+module.exports = (async () => {
+    try {
+        return new Bool('pandres95.me', [ 'request-promise' ])
+            .run();
+    } catch (error) {
+        console.error(error);
+    }
+})();

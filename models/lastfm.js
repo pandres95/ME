@@ -1,19 +1,27 @@
 'use strict';
 
-module.exports = function (app) {
-    let agent = new app.utilities['superagent-promise'](
-        app.utilities.superagent, Promise
-    );
+const NoModel = require('booljs.nomodel/model');
 
-    this.recent = function (username) {
-        return (agent
-            .get('https://ws.audioscrobbler.com/2.0')
-            .query({
+module.exports = class LastfmModel extends NoModel {
+    constructor (app) {
+        super();
+        this.RequestPromise = app.utilities.RequestPromise;
+    }
+
+    async recent (username) {
+        const { RequestPromise } = this;
+
+        const { recenttracks: { track } } = await  RequestPromise({
+            uri: 'https://ws.audioscrobbler.com/2.0',
+            qs: {
                 method: 'user.getrecenttracks',
                 user: username,
                 'api_key': process.env.LASTFM_API_KEY,
                 format: 'json'
-            })
-        ).end().then(res => res.body.recenttracks.track);
+            },
+            json: true
+        });
+
+        return track;
     };
 };

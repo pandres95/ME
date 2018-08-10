@@ -1,14 +1,21 @@
 'use strict';
 
-module.exports = function (app) {
-    const promise = new app.views.Json().promise;
-    const Lastfm  = app.dao.Lastfm;
+module.exports = class LastfmController {
+    constructor (app) {
+        this.app = app;
+    }
 
-    this.recent = function (req, res, next) {
-        promise(new Lastfm().recent(), res, next);
+    async recent (request, response, next) {
+        const { Json } = this.app.views;
+        const { Lastfm } = this.app.dao;
+
+        return new Json().promise(new Lastfm().recent(), response, next);
     };
 
-    this.latest = function (req, res, next) {
-        promise(new Lastfm().latest(), res, next);
+    async latest (request, response, next) {
+        const { Json } = this.app.views;
+        const { Lastfm } = this.app.dao;
+
+        return new Json().promise(new Lastfm().latest(), response, next);
     };
 };
