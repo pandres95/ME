@@ -10,6 +10,6 @@ services:
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker build -t pandres95/api .;
-    docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin;
     docker push pandres95/api;
     fi
